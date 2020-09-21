@@ -2,19 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import { Provider } from 'react-redux';
-import store from '../src/store/Store'
-import ListUser from '../src/components/listUser/ListUser'
+import { BrowserRouter as Router, Route , Link } from "react-router-dom";
+import Login from './components/Login'
+import List from './components/List'
+import Switch from 'react-bootstrap/esm/Switch';
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store = {store}> 
-    <ListUser />
-    </Provider>
+    <Switch>
+    <Router>
+    <Route path="/" exact component={Login}/>
+    <Route path="/list" component={List}/>
+    </Router>
+    </Switch>
   </React.StrictMode>,
-  document.getElementById('root')
+   document.getElementById('root')
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
