@@ -9,13 +9,23 @@ export default class Login extends Component {
         <div className="auth-inner">
         <form>
                 <div className="form-group">
-                    <label>Email address</label>
-                    <input type="email" className="form-control" placeholder="Enter email" />
+                <span class="input input--ichiro">
+					<input class="input__field input__field--ichiro"  type="email"  id="input-25" placeholder="Enter email"/>
+					<label class="input__label input__label--ichiro" for="input-25">
+						<span class="input__label-content input__label-content--ichiro">Email address</span>
+					</label>
+				</span>
+                    {/* <label>Email address</label>
+                    <input type="email" className="input__field input__field--ichiro" id="input-25" placeholder="Enter email" /> */}
                 </div>
 
                 <div className="form-group">
-                    <label>Password</label>
-                    <input type="password" className="form-control" placeholder="Enter password" />
+                <span class="input input--ichiro">
+					<input class="input__field input__field--ichiro"  type="password"  id="input-26" placeholder="Enter password"/>
+					<label class="input__label input__label--ichiro" for="input-26">
+						<span class="input__label-content input__label-content--ichiro">Password</span>
+					</label>
+				</span>
                 </div>
 
                 <div className="form-group">
@@ -30,7 +40,6 @@ export default class Login extends Component {
                     Forgot <a>password?</a>
                 </p>
             </form>
-            
         </div>
       </div>
     </div>

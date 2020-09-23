@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 // import Modal from './components/Modal'
 import Modal from "./components/Modal";
 import useModal from './components/useModal';
+import './set1.css'
 
 
 class App extends Component {
@@ -149,6 +150,7 @@ class App extends Component {
               <button type="button" className="btn btn-warning" onClick={this.onSetState}>
                 {this.state.icon}
                 </button>
+                
           </div>
         </div>
       </div>

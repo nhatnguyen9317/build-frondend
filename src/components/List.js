@@ -4,7 +4,6 @@ import Modal from "./Modal";
 import useModal from './useModal';
 import '../App.css';
 
-
 class List extends Component {
   
 
@@ -94,6 +93,10 @@ class List extends Component {
     }
   }
   
+  renderTableHeader() {
+    const header = Object.keys(this.state.headers[0])
+    return header.map((key, index) => <th key={index}>{key.toUpperCase()}</th>)
+  }
   
   render() {
     let elements= this.state.products.map((product,index) => {
@@ -110,17 +113,16 @@ class List extends Component {
                              }else{
                               result = <tr></tr>
                              }
-                          
         return result;
      }
     );
     return (
         
-        <div class="panel panel-danger">
-              <div class="panel-heading">
-                    <h3 class="panel-title">List user</h3>
+        <div className="panel panel-danger">
+              <div className="panel-heading">
+                    <h3 className="panel-title">List user</h3>
               </div>
-              <div class="panel-body">
+              <div className="panel-body">
               <div>
         <div className="container">
           <div className="row">
