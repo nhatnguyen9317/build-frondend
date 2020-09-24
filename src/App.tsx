@@ -6,20 +6,22 @@ interface ComponentState {
   isOpen: boolean;
 }
 
-export default class App extends React.Component<ComponentState> {
+export default class App extends React.Component {
   state: ComponentState = {
     isOpen: false,
   }
 
-  handleClick() {
-    this.setState({ isOpen: !this.state.isOpen })
+  handleClick(isOpen: boolean) {
+    console.log("phai mo modal")
+    this.setState({ isOpen: !isOpen })
   }
 
   render() {
+    console.log(this.state.isOpen);
     return (
       <>
-        <button onClick={() => this.handleClick()}>Click here</button>
-        <DemoModal isOpen={this.state.isOpen} />
+        <button onClick={() => this.handleClick(this.state.isOpen)}>Click here</button>
+        <DemoModal isOpen={this.state.isOpen}/>
       </>
     );
   }

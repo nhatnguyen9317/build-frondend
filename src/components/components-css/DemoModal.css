@@ -34,6 +34,9 @@
 }
 
 .button-close-modal {
+    border: none;
+    background-color: transparent;
+    color: white;
     position: absolute;
     top: 30px;
     left: 30px;

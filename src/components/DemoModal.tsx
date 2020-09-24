@@ -1,49 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './components-css/DemoModal.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-interface ComponentProps {
+interface Props {
     isOpen: boolean;
 }
 
-interface ComponentStates {
+interface States {
     isOpen: boolean;
 }
 
-export default class DemoModal extends React.Component<ComponentProps, ComponentStates> {
+export const DemoModal: React.ComponentFactory<Props> = () => {
 
-    constructor(props: ComponentProps) {
-        super(props);
-        this.setState({ isOpen: this.props.isOpen });
-    }
+    const [isOpen, setIsOpen] = useState({isOpen: false})
 
-    modal() {
-        console.log("open modal")
-        return (
-            <div className="modal">
-                <div className="modal-head"></div>
-                <div className="modal-body"></div>
-            </div>
-        )
-    }
+    // const modal = () => {
+    //     return (
+    //         <div className="modal">
+    //             <div className="modal-head"></div>
+    //             <div className="modal-body"></div>
+    //         </div>
+    //     )
+    // }
 
-    render() {
-        if (this.state.isOpen) {
-            return (
-                <>
-                    <div className="modal-background modal-open">
-                        <p className="button-close-modal">
-                            <i className="fas fa-times"></i>
-                        </p>
-                        {this.modal()}
-                    </div>
-                </>
-            );
-        }
-        if (!this.state.isOpen) {
-            return (
-                <>
-                </>
-            );
-        }
-    }
+    // const handleClick = (isOpen: boolean) => {
+        
+    // }
+
+    // render() {
+    //     this.setState({isOpen: this.props.isOpen})
+    //     if (this.state.isOpen) {
+    //         return (
+    //             <>
+    //                 <div className="modal-background modal-open">
+    //                     <button className="button-close-modal" onClick={() => this.handleClick(this.state.isOpen)}>
+    //                         <FontAwesomeIcon icon={["fas", "times"]} />
+    //                     </button>
+    //                     {modal}
+    //                 </div>
+    //             </>
+    //         );
+    //     }
+    //     if (!this.state.isOpen) {
+    //         return (
+    //             <>
+    //             </>
+    //         );
+    //     }
+    // }
 }
