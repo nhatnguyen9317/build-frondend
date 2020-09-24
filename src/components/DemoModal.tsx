@@ -6,46 +6,39 @@ interface Props {
     isOpen: boolean;
 }
 
-interface States {
-    isOpen: boolean;
+const DemoModal = (props: Props) => {
+
+    const [isOpen, setIsOpen] = useState<boolean>(props.isOpen);
+
+    const toggleModal = () => {
+        console.log(isOpen);
+        setIsOpen(!isOpen);
+    }
+
+    const modal = () => {
+        console.log("open modal");
+        return (
+            <div className="modal">
+                <div className="modal-head"></div>
+                <div className="modal-body"></div>
+            </div>
+        );
+    }
+
+    if (isOpen) {
+        return (
+            <>
+                <div className="modal-background modal-open">
+                    <button className="button-close-modal" onClick={() => toggleModal()}>
+                        <FontAwesomeIcon icon={["fas", "times"]} />
+                    </button>
+                    {modal}
+                </div>
+            </>);
+    }
+    if(!isOpen) {
+        return (<></>);
+    }
 }
 
-export const DemoModal: React.ComponentFactory<Props> = () => {
-
-    const [isOpen, setIsOpen] = useState({isOpen: false})
-
-    // const modal = () => {
-    //     return (
-    //         <div className="modal">
-    //             <div className="modal-head"></div>
-    //             <div className="modal-body"></div>
-    //         </div>
-    //     )
-    // }
-
-    // const handleClick = (isOpen: boolean) => {
-        
-    // }
-
-    // render() {
-    //     this.setState({isOpen: this.props.isOpen})
-    //     if (this.state.isOpen) {
-    //         return (
-    //             <>
-    //                 <div className="modal-background modal-open">
-    //                     <button className="button-close-modal" onClick={() => this.handleClick(this.state.isOpen)}>
-    //                         <FontAwesomeIcon icon={["fas", "times"]} />
-    //                     </button>
-    //                     {modal}
-    //                 </div>
-    //             </>
-    //         );
-    //     }
-    //     if (!this.state.isOpen) {
-    //         return (
-    //             <>
-    //             </>
-    //         );
-    //     }
-    // }
-}
+export default DemoModal

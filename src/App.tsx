@@ -1,28 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import DemoModal from './components/DemoModal';
 import './App.css';
 
-interface ComponentState {
-  isOpen: boolean;
+const App = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const toggleModal = () => {
+    console.log(isOpen);
+    setIsOpen(!isOpen);
+  }
+
+  return (
+    <>
+      <button onClick={() => toggleModal()}>Click here</button>
+      <DemoModal isOpen={isOpen}/>
+    </>
+  )
 }
 
-export default class App extends React.Component {
-  state: ComponentState = {
-    isOpen: false,
-  }
-
-  handleClick(isOpen: boolean) {
-    console.log("phai mo modal")
-    this.setState({ isOpen: !isOpen })
-  }
-
-  render() {
-    console.log(this.state.isOpen);
-    return (
-      <>
-        <button onClick={() => this.handleClick(this.state.isOpen)}>Click here</button>
-        <DemoModal isOpen={this.state.isOpen}/>
-      </>
-    );
-  }
-}
+export default App;
