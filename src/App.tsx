@@ -1,17 +1,31 @@
 import React from 'react';
-import DemoModal from './components/DemoModal';
 import './App.css';
-import { useDispatch } from 'react-redux';
-import { openModal } from './actions/ModalToggleAction';
+import {BrowserRouter as Router,
+  Switch,
+  Route} from 'react-router-dom';
+import LoginPage from './pages/LoginPage';
+import ListUser from './pages/ListUser';
+import SystemError from './pages/SystemError';
 
 const App = () => {
-  const dispatch = useDispatch();
-
   return (
-    <>
-      <button onClick={() => dispatch(openModal())}>Click here</button>
-      <DemoModal />
-    </>
+    <Router>
+      <Switch>
+        <Route path="/">
+          <LoginPage/>
+        </Route>
+        <Route path="/list">
+          <ListUser/>
+        </Route>
+        <Route path="/error">
+          <SystemError/>
+        </Route>
+      </Switch>
+    </Router>
+    // <>
+    //   <button onClick={() => dispatch(openModal())}>Click here</button>
+    //   <DemoModal />
+    // </>
   )
 }
 
