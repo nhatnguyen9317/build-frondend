@@ -12,6 +12,7 @@
 }
 
 .modal {
+    border-radius: 10px;
     position: absolute;
     left: 50%;
     top: 40%;
@@ -22,11 +23,17 @@
 }
 
 .modal-head {
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    justify-content: space-between;
     background-color: green;
+    height: 15%;
 }
 
 .modal-body {
+    border-radius: 0 0 10px 10px;
     background-color: greenyellow;
+    height: 85%;
 }
 
 .modal-open {
@@ -34,15 +41,17 @@
 }
 
 .button-close-modal {
-    border: none;
-    background-color: transparent;
-    color: white;
-    position: absolute;
-    top: 30px;
-    right: 30px;
     font-weight: 700;
     font-size: 30px;
+    margin: 10px;
 }
+
 .button-close-modal:hover {
     cursor: pointer;
+}
+
+.modal-head-title {
+    margin: 10px;
+    font-weight: 700;
+    font-size: 25px;
 }
