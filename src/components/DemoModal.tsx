@@ -1,44 +1,31 @@
-import React, { useState } from 'react';
+import React from 'react';
+import {useSelector, useDispatch} from 'react-redux'
+import { closeModal } from '../actions/ModalToggleAction';
 import './components-css/DemoModal.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-interface Props {
+interface State {
     isOpen: boolean;
 }
 
-const DemoModal = (props: Props) => {
-
-    const [isOpen, setIsOpen] = useState<boolean>(props.isOpen);
-
-    const toggleModal = () => {
-        console.log(isOpen);
-        setIsOpen(!isOpen);
-    }
-
-    const modal = () => {
-        console.log("open modal");
-        return (
-            <div className="modal">
-                <div className="modal-head"></div>
-                <div className="modal-body"></div>
-            </div>
-        );
-    }
+const DemoModal = () => {
+    const isOpen = useSelector<State>(state => state.isOpen);
+    const dispatch = useDispatch();
 
     if (isOpen) {
         return (
-            <>
-                <div className="modal-background modal-open">
-                    <button className="button-close-modal" onClick={() => toggleModal()}>
-                        <FontAwesomeIcon icon={["fas", "times"]} />
-                    </button>
-                    {modal}
+            <div className="modal-background modal-open">
+                <p className="button-close-modal" onClick={() => dispatch(closeModal())}>
+                    &#x2716;
+                </p>
+                <div className="modal">
+                    <div className="modal-head"></div>
+                    <div className="modal-body"></div>
                 </div>
-            </>);
-    }
-    if(!isOpen) {
+            </div>
+        );
+    } else {
         return (<></>);
     }
 }
 
-export default DemoModal
+export default DemoModal;

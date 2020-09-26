@@ -39,6 +39,10 @@
     color: white;
     position: absolute;
     top: 30px;
-    left: 30px;
-    font-size: 15px;
+    right: 30px;
+    font-weight: 700;
+    font-size: 30px;
+}
+.button-close-modal:hover {
+    cursor: pointer;
 }
