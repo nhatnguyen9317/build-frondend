@@ -44,17 +44,22 @@
 }
 .box-input label {
     float: left;
-    min-width: 120px;
+    min-width: 100px;
 }
 .box-input input {
     margin-left: auto;
-    border: 1px solid #1a75ff;
+    border: 1px solid #418bfa;
     border-radius: 3px;
-    background-color: #e6f0ff;
-    transition: border background-color;
+    background-color: #f5f9ff;
+    transition: border, background-color .1s;
 }
 
 .box-input input:hover {
+    background-color: white;
+    border: 1px solid #0047b3;
+}
+
+.box-input input:focus {
     background-color: white;
     border: 1px solid #0047b3;
 }
