@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch } from 'react-redux';
-import { login } from '../actions/AuthenticationAction';
-import './pages-css/LoginPage.css';
+import { useDispatch } from "react-redux";
+import { login } from "../actions/AuthenticationAction";
+import "./pages-css/LoginPage.css";
 
 interface DataLogin {
     loginName: string;
@@ -10,37 +10,36 @@ interface DataLogin {
 }
 
 const LoginPage = () => {
-
     const dispatch = useDispatch();
     const { register, handleSubmit } = useForm<DataLogin>();
 
     const listUser = [
         {
             loginName: "admin1",
-            password: "admin1234"
+            password: "admin1234",
         },
         {
             loginName: "admin2",
-            password: "admin12345"
-        }
+            password: "admin12345",
+        },
     ];
 
     const onSubmit = (data: DataLogin) => {
         console.log(data);
-        const userLogin = listUser.find(user => user.loginName === data.loginName)
-        if (userLogin?.password === data.password) {
-            console.log("login success!")
+        const userLogin = listUser.find(
+            (user) => user.loginName === data.loginName && user.password === data.password
+        );
+        if (userLogin?.loginName) {
+            console.log("login success!");
             dispatch(login());
         } else {
-            console.log("login fail!")
+            console.log("login fail!");
         }
     };
 
     return (
         <div className="div-login">
-            <p className="header-login">
-                Login here
-            </p>
+            <p className="header-login">Login here</p>
             <div className="body-login">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="box-input">
@@ -56,6 +55,6 @@ const LoginPage = () => {
             </div>
         </div>
     );
-}
+};
 
 export default LoginPage;

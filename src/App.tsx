@@ -32,10 +32,6 @@ const App = () => {
         </Route>
       </Switch>
     </Router>
-    // <>
-    //   <button onClick={() => dispatch(openModal())}>Click here</button>
-    //   <DemoModal />
-    // </>
   )
 }
 
