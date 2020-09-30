@@ -27,12 +27,16 @@
     border-radius: 5px;
     padding: 4px 8px 5px 8px;
     color: white;
+    width: 100%;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
     transition: background-color box-shadow 0.1s;
 }
 
 .button-submit:hover {
     box-shadow: 0 0 5px 0 gray;
-    background-color: #6b6bff;
+    background-color: #7c7cfc;
 }
 .button-submit:focus {
     background-color: #4d4dff;

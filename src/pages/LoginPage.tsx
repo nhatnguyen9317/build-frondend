@@ -1,19 +1,40 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
+import { useDispatch } from 'react-redux';
+import { login } from '../actions/AuthenticationAction';
 import './pages-css/LoginPage.css';
 
 interface DataLogin {
-    userName: string;
+    loginName: string;
     password: string;
 }
 
 const LoginPage = () => {
 
-    const { register, handleSubmit } = useForm<DataLogin>()
+    const dispatch = useDispatch();
+    const { register, handleSubmit } = useForm<DataLogin>();
+
+    const listUser = [
+        {
+            loginName: "admin1",
+            password: "admin1234"
+        },
+        {
+            loginName: "admin2",
+            password: "admin12345"
+        }
+    ];
 
     const onSubmit = (data: DataLogin) => {
         console.log(data);
-    }
+        const userLogin = listUser.find(user => user.loginName === data.loginName)
+        if (userLogin?.password === data.password) {
+            console.log("login success!")
+            dispatch(login());
+        } else {
+            console.log("login fail!")
+        }
+    };
 
     return (
         <div className="div-login">
@@ -34,7 +55,7 @@ const LoginPage = () => {
                 </form>
             </div>
         </div>
-    )
+    );
 }
 
 export default LoginPage;
